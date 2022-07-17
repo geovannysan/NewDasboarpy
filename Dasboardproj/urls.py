@@ -16,8 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from Dasboardproj.views import salido
+from newser.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('saludos/',salido),
+    path('home/',home),
 ]
