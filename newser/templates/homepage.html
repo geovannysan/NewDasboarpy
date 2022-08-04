@@ -45,33 +45,38 @@
 <div class="container py-4">
   <div class="row">
     <div class="col-md-4">
-      <form class="row g-3 needs-validation" novalidate>
+      <form class="row g-3 needs-validation" novalidate action="/createdocente/" method="POST">{% csrf_token %}
   <div class="col-md-12">
-    <label for="validationCustom01" class="form-label">Nombre</label>
-    <input type="text" class="form-control" id="validationCustom01" value="" required>
+    <label  class="form-label">Nombre</label>
+    <input type="text" class="form-control" id="names" name="names" value="" required>
     <div class="valid-feedback">
       Looks good!
     </div>
   </div>
   <div class="col-md-12">
-    <label for="validationCustom02" class="form-label"> credito</label>
-    <input type="number" class="form-control" id="validationCustom02" value="" required>
+    <label class="form-label"> segundo</label>
+    <input type="text" class="form-control" id="se" name="se" value="" required>
     <div class="valid-feedback">
       Looks good!
     </div>
   </div>
   <div class="col-md-12">
-    <label for="validationCustomUsername" class="form-label">Email</label>
+    <label  class="form-label">Email</label>
     <div class="input-group has-validation">
       <span class="input-group-text" id="inputGroupPrepend">@</span>
-      <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+      <input type="text" class="form-control" id="validationCustomUsername" name="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
       <div class="invalid-feedback">
         Please choose a username.
       </div>
     </div>
   </div>
-
-
+   <div class="col-md-12">
+    <label class="form-label"> fecha</label>
+    <input type="date" class="form-control" id="validationCustom03" name="validationCustom03" value="" required>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+  </div>
   <div class="col-12">
     <button class="btn btn-primary" type="submit">Submit form</button>
   </div>
@@ -103,15 +108,17 @@ Array.from(forms).forEach(form => {
       <th scope="col">First</th>
       <th scope="col">Last</th>
       <th scope="col">Handle</th>
+      <th scope="col">Handle</th>
     </tr>
   </thead>
   <tbody>
   {% for c in object_list %}
     <tr>
       <th scope="row">1</th>
+      <td>{{c.lastname}}</td>
+      <td>{{c.firstname}}</td>
       <td>{{c.nombre}}</td>
-      <td>{{c.credtos}}</td>
-      <td>{{c.email}}</td>
+      <td>{{c.id}}</td>
     </tr>
   {% endfor %}
   </tbody>
