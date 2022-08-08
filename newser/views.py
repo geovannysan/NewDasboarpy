@@ -4,8 +4,7 @@ from .models import Curso,Docente
 # Create your views here.
 
 def home(request):
-    userlista =Docente.objects.all()
-    return render(request,'homepage.html',{"curso":userlista})
+    return render(request,'login.html')
 
 class Cursolist(ListView):
     model = Docente
@@ -15,11 +14,14 @@ class Cursolist(ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         contex=super().get_context_data(**kwargs)
         contex["titulo"]="Docentes"
+        
         return contex
 def DeleteCurso(request,id):
-    curso = Curso.objects.get(id=id)
-    curso.delete()
+    print(request,id)
+    prof = Docente.objects.get(id=id)
+    prof.delete()
     return  redirect('/')
+
 def CreateDocente(request):
     nom = request.POST['names']
     seg = request.POST['se']

@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,7 +46,8 @@
 <div class="container py-4">
   <div class="row">
     <div class="col-md-4">
-      <form class="row g-3 needs-validation" novalidate action="/createdocente/" method="POST">{% csrf_token %}
+      <form class="row g-3 needs-validation" novalidate action="/createdocente/" method="POST">
+        {% csrf_token %}
   <div class="col-md-12">
     <label  class="form-label">Nombre</label>
     <input type="text" class="form-control" id="names" name="names" value="" required>
@@ -82,21 +84,7 @@
   </div>
 </form>
       <script>
-        (() => {
-  'use strict'
-
-  const forms = document.querySelectorAll('.needs-validation')
-Array.from(forms).forEach(form => {
-    form.addEventListener('submit', event => {
-      if (!form.checkValidity()) {
-        event.preventDefault()
-        event.stopPropagation()
-      }
-
-      form.classList.add('was-validated')
-    }, false)
-  })
-})()
+     
       </script>
 
     </div>
@@ -118,7 +106,9 @@ Array.from(forms).forEach(form => {
       <td>{{c.lastname}}</td>
       <td>{{c.firstname}}</td>
       <td>{{c.nombre}}</td>
-      <td>{{c.id}}</td>
+      <td>
+        <a href="eliminarcurso/{{c.id}}" class="btn btn-sm btn-outline-success btneliminar"> elimnar</a>
+     </td>
     </tr>
   {% endfor %}
   </tbody>
@@ -131,6 +121,6 @@ Array.from(forms).forEach(form => {
 
 </head>
 <body>
-
+<script src="{% static 'js/validaregister.js' %}" ></script>
 </body>
 </html>
