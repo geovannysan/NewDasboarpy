@@ -1,3 +1,4 @@
+from django.contrib.auth import authenticate, login
 from django.shortcuts import render,redirect
 from django.views.generic import ListView
 from .models import Curso,Docente
@@ -29,6 +30,15 @@ def CreateDocente(request):
     fe = request.POST['validationCustom03']
     curso = Docente.objects.create(nombre=nom,lastname=seg,firstname=ed,fecha_nacimiento=fe)
     return redirect('/')
+def  Userauth(request):
+    usename = request.POST['username']
+    password = request.POST['password']
+    #user = authenticate(request,username=username,password=password)
+    #if username is not None:
+     #   login(request,user, backend='django.contrib.auth.backends.ModelBackend')
+    return redirect('/')
+    #else:
+     #   print("no existe")
     
    
 

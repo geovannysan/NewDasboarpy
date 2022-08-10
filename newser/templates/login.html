@@ -29,23 +29,67 @@
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700;800;900&amp;display=swa">
 </head>
-
+<style type="text/css">
+  
+</style>
 <body class="body-custom">
 	<div class="contenedor ">
 		<div class="card cardlogin">
-			<div class="row g-0">
-				<div class="col-sm   ">
-					<h1>
-						hi
-					</h1>
-				</div>
-				
+			
 
-				<div class="col-sm">
-					
-					<h2>hi</h2>
-				</div>
-				
+    <div class="row g-0 d-flex align-items-center ">
+      <div class="col-lg-6 d-none d-lg-flex ">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+          class="img-fluid" alt="Sample image">
+      </div>
+      <div class="col-lg-6">
+        <div class="card-body py-5 px-md-5">
+
+          <form  action="Userauth/" method="POST" >
+            {% csrf_token %}
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+              <div class="form-floating">
+      <input type="email" class="form-control" id="username" name="username" placeholder="name@example.com" >
+      <label for="floatingInputGrid">Email </label>
+    </div>
+            </div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+              <div class="form-floating">
+       <input type="password" id="form2Example2" name="password"class="form-control" placeholder="g"/>
+              <label  for="form2Example2">Contraseña</label>
+    </div>
+             
+            </div>
+
+            <!-- 2 column grid layout for inline styling -->
+            <div class="row mb-4 pt-5">
+              <div class="col d-flex justify-content-center">
+                <!-- Checkbox -->
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
+                  <label class="form-check-label" for="form2Example31"> recordar </label>
+                </div>
+              </div>
+
+              <div class="col">
+                <!-- Simple link -->
+                <a href="#!">Olvido contraseña?</a>
+              </div>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-block mb-4 ">iniciar</button>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+  
+<!-- Section: Design Block -->
 			</div>
 			
 		</div>
