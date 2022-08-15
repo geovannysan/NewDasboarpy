@@ -1,7 +1,8 @@
+from django.conf.global_settings import MEDIA_URL,STATIC_URL
+from django.contrib.auth.models import AbstractUser
 from django.db import models
-
-
 # Create your models here.
+
 class Docente(models.Model):
     nombre= models.CharField(max_length=100)
     lastname= models.CharField(max_length=100)
@@ -30,3 +31,10 @@ class Curso(models.Model):
         verbose_name_plural= 'Cursos'
         db_table= 'curso'
         ordering=['nombre','-creditos']
+
+class Usuarios(AbstractUser):
+    imgen = models.ImageField(upload_to='user/%y/%m/%d',null=True,blank=True)
+    def get_image(self):
+        if self.imgen:
+            return '{}{}'.format_map(MEDIA_URL,self.imgen)
+        return '{}{}'.format(STATIC_URL,'static/gps.png')

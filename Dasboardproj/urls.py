@@ -15,11 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from Dasboardproj.views import salido
-from newser.views import *
 
 urlpatterns = [
-    path('', include('newser.urls')),
+        path('', include('newser.urls')),
     path('admin/', admin.site.urls),
 
 ]

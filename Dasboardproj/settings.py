@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'newser',
     'newser.templates',
+    'widget_tweaks',
+
 ]
 
 MIDDLEWARE = [
@@ -85,18 +87,7 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
-AUTHENTICATION_BACKENDS = [
-     'django.contrib.auth.backends.ModelBackend',
-     'social_core.backends.open_id.OpenIdAuth',
-     'social_core.backends.google.GoogleOpenId',
-     'social_core.backends.google.GoogleOAuth2',
-     'social_core.backends.google.GoogleOAuth',
-     'social_core.backends.twitter.TwitterOAuth',
-     'social_core.backends.facebook.FacebookOAuth2',
-     'social_core.backends.github.GithubOAuth2',
- 
 
-]
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -128,6 +119,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
+AUTH_USER_MODEL = 'newser.Usuarios'
+LOGIN_REDIRECT_URL='/home'
+LOGOUT_REDIRECT_URL='/login'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
