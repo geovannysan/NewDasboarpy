@@ -31,6 +31,26 @@ class Curso(models.Model):
         verbose_name_plural= 'Cursos'
         db_table= 'curso'
         ordering=['nombre','-creditos']
+class Cliente(models,Model):
+    nombres= models.CharField(max_length=100)
+    apellido=models.CharField(max_length=100)
+    dni= models.ItegerField()
+    email=models.CharField(max_length=50)
+    telefono=models.ItegerField()
+    fecha_nacimiento= models.DateField()
+    class Meta:
+        verbose_name= 'cliente'
+        verbose_name_plural= 'clientes'
+        db_table= 'cliente'
+        ordering=['nombres','-fecha_nacimiento'] 
+class BaseConocimiento(models.Model):
+    nombre= models.CharField(max_length=100)
+    detalle=models.CharField(max_length=300)
+    class Meta:
+        verbose_name= 'base_conociento'
+        verbose_name_plural= 'base_conocientos'
+        db_table= 'base_conociento'
+        ordering=['nombres']                      
 
 class Usuarios(AbstractUser):
     imgen = models.ImageField(upload_to='user/%y/%m/%d',null=True,blank=True)
@@ -38,3 +58,8 @@ class Usuarios(AbstractUser):
         if self.imgen:
             return '{}{}'.format_map(MEDIA_URL,self.imgen)
         return '{}{}'.format(STATIC_URL,'static/gps.png')
+    class Meta:
+        verbose_name= 'Usuario'
+        verbose_name_plural= 'Usuarios'
+        db_table= 'Usuario'
+        ordering=['username','-date_joined']   
